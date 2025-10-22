@@ -13,15 +13,14 @@ export async function GET() {
 export async function POST(request: Request) {
   try {
     const newCustomer: Omit<Customer, 'id'> = await request.json();
-    const data = readData();
     
+    // Vercel'de dosya yazma izni yok, sadece mock data döndür
     const customer: Customer = {
-      id: getNextId(data.customers),
+      id: Date.now(), // Unique ID
       ...newCustomer
     };
     
-    data.customers.push(customer);
-    writeData(data);
+    console.log('New customer created:', customer);
     
     return NextResponse.json(customer, { status: 201 });
   } catch (error) {

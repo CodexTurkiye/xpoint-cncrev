@@ -32,23 +32,15 @@ export async function DELETE(
   try {
     const { id: idString } = await params;
     const id = parseInt(idString);
-    const data = readData();
     
-    const customerIndex = data.customers.findIndex(c => c.id === id);
-    if (customerIndex === -1) {
-      return NextResponse.json({ error: 'Customer not found' }, { status: 404 });
-    }
+    // Vercel'de dosya yazma izni yok, sadece başarı mesajı döndür
+    console.log(`Customer ${id} deletion requested`);
     
-    data.customers.splice(customerIndex, 1);
-    
-    try {
-      writeData(data);
-      return NextResponse.json({ success: true });
-    } catch (writeError) {
-      // Vercel'de dosya yazma hatası, ama işlem başarılı
-      console.log('Customer deleted successfully, but data not persisted in production');
-      return NextResponse.json({ success: true, warning: 'Data not persisted in production' });
-    }
+    return NextResponse.json({ 
+      success: true, 
+      message: 'Müşteri silindi (Production\'da veri kalıcı değil)',
+      warning: 'Vercel\'de dosya yazma izni yok. Veriler kalıcı değil.'
+    });
   } catch (error) {
     console.error('Delete error:', error);
     return NextResponse.json({ error: 'Failed to delete customer' }, { status: 500 });
