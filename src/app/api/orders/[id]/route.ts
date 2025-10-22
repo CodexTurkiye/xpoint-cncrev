@@ -3,10 +3,11 @@ import { readData, writeData, Order } from '@/lib/data';
 
 export async function PUT(
   request: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    const id = parseInt(params.id);
+    const { id: idString } = await params;
+    const id = parseInt(idString);
     const updatedOrder: Omit<Order, 'id'> = await request.json();
     const data = readData();
     
@@ -26,10 +27,11 @@ export async function PUT(
 
 export async function DELETE(
   request: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    const id = parseInt(params.id);
+    const { id: idString } = await params;
+    const id = parseInt(idString);
     const data = readData();
     
     const orderIndex = data.orders.findIndex(o => o.id === id);
