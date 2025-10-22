@@ -1,0 +1,250 @@
+{
+  "customers": [
+    {
+      "id": 1,
+      "name": "Ahmet Yılmaz",
+      "company": "Yılmaz Mobilya",
+      "phone": "0532 123 45 67",
+      "email": "ahmet@yilmazmobilya.com",
+      "address": "İstanbul, Kadıköy",
+      "totalOrders": 15,
+      "totalAmount": 45000,
+      "lastOrderDate": "2024-01-15"
+    },
+    {
+      "id": 2,
+      "name": "Mehmet Kaya",
+      "company": "Kaya Dekorasyon",
+      "phone": "0533 987 65 43",
+      "email": "mehmet@kayadekorasyon.com",
+      "address": "Ankara, Çankaya",
+      "totalOrders": 8,
+      "totalAmount": 28000,
+      "lastOrderDate": "2024-01-10"
+    },
+    {
+      "id": 3,
+      "name": "Fatma Demir",
+      "company": "Demir Ahşap",
+      "phone": "0534 555 44 33",
+      "email": "fatma@demirahsap.com",
+      "address": "İzmir, Konak",
+      "totalOrders": 22,
+      "totalAmount": 67000,
+      "lastOrderDate": "2024-01-18"
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "name": "MDF 18mm",
+      "category": "Ahşap",
+      "material": "MDF",
+      "thickness": "18mm",
+      "stock": 25,
+      "unitPrice": 45,
+      "supplier": "Ahşap Ticaret",
+      "lastRestock": "2024-01-10",
+      "minStock": 10
+    },
+    {
+      "id": 2,
+      "name": "Sunta 16mm",
+      "category": "Ahşap",
+      "material": "Sunta",
+      "thickness": "16mm",
+      "stock": 5,
+      "unitPrice": 35,
+      "supplier": "Ahşap Ticaret",
+      "lastRestock": "2024-01-05",
+      "minStock": 15
+    },
+    {
+      "id": 3,
+      "name": "Kontrplak 12mm",
+      "category": "Ahşap",
+      "material": "Kontrplak",
+      "thickness": "12mm",
+      "stock": 18,
+      "unitPrice": 55,
+      "supplier": "Doğal Ahşap",
+      "lastRestock": "2024-01-12",
+      "minStock": 8
+    },
+    {
+      "id": 4,
+      "name": "6mm Freze Ucu",
+      "category": "Kesici Takım",
+      "material": "Karbür",
+      "thickness": "6mm",
+      "stock": 2,
+      "unitPrice": 120,
+      "supplier": "Takım Ticaret",
+      "lastRestock": "2024-01-08",
+      "minStock": 5
+    },
+    {
+      "id": 5,
+      "name": "Menteşe 35mm",
+      "category": "Aksesuar",
+      "material": "Çelik",
+      "thickness": "35mm",
+      "stock": 150,
+      "unitPrice": 2.5,
+      "supplier": "Aksesuar Merkezi",
+      "lastRestock": "2024-01-15",
+      "minStock": 50
+    }
+  ],
+  "orders": [
+    {
+      "id": 1,
+      "orderNumber": "SP-2024-001",
+      "customerName": "Ahmet Yılmaz",
+      "customerCompany": "Yılmaz Mobilya",
+      "workDescription": "MDF 18mm kesim - 50 adet dolap kapısı",
+      "quantity": 50,
+      "unitPrice": 45,
+      "totalAmount": 2250,
+      "orderDate": "2024-01-15",
+      "deliveryDate": "2024-01-25",
+      "status": "in_progress",
+      "paymentStatus": "partial",
+      "notes": "Özel ölçüler, detaylı çizim eklendi"
+    },
+    {
+      "id": 2,
+      "orderNumber": "SP-2024-002",
+      "customerName": "Mehmet Kaya",
+      "customerCompany": "Kaya Dekorasyon",
+      "workDescription": "Sunta 16mm kesim - 30 adet raf",
+      "quantity": 30,
+      "unitPrice": 35,
+      "totalAmount": 1050,
+      "orderDate": "2024-01-10",
+      "deliveryDate": "2024-01-20",
+      "status": "completed",
+      "paymentStatus": "paid",
+      "notes": "Standart ölçüler"
+    },
+    {
+      "id": 3,
+      "orderNumber": "SP-2024-003",
+      "customerName": "Fatma Demir",
+      "customerCompany": "Demir Ahşap",
+      "workDescription": "Kontrplak 12mm kesim - 25 adet masa üstü",
+      "quantity": 25,
+      "unitPrice": 55,
+      "totalAmount": 1375,
+      "orderDate": "2024-01-18",
+      "deliveryDate": "2024-01-28",
+      "status": "pending",
+      "paymentStatus": "pending",
+      "notes": "Acil teslimat gerekli"
+    }
+  ],
+  "inventory": [
+    {
+      "id": 1,
+      "productName": "MDF 18mm",
+      "category": "Ahşap",
+      "supplier": "Ahşap Ticaret",
+      "supplierLocation": "İstanbul, Merter",
+      "supplierContact": "0532 123 45 67",
+      "quantity": 50,
+      "unitPrice": 45,
+      "totalCost": 2250,
+      "shippingCost": 150,
+      "entryDate": "2024-01-15",
+      "notes": "Kaliteli MDF, nem oranı düşük"
+    },
+    {
+      "id": 2,
+      "productName": "6mm Freze Ucu",
+      "category": "Kesici Takım",
+      "supplier": "Takım Ticaret",
+      "supplierLocation": "Ankara, Ostim",
+      "supplierContact": "0312 987 65 43",
+      "quantity": 10,
+      "unitPrice": 120,
+      "totalCost": 1200,
+      "shippingCost": 50,
+      "entryDate": "2024-01-12",
+      "notes": "Karbür uçlu, uzun ömürlü"
+    },
+    {
+      "id": 3,
+      "productName": "Menteşe 35mm",
+      "category": "Aksesuar",
+      "supplier": "Aksesuar Merkezi",
+      "supplierLocation": "İzmir, Bornova",
+      "supplierContact": "0232 555 44 33",
+      "quantity": 200,
+      "unitPrice": 2.5,
+      "totalCost": 500,
+      "shippingCost": 25,
+      "entryDate": "2024-01-10",
+      "notes": "Paslanmaz çelik"
+    }
+  ],
+  "costs": [
+    {
+      "id": 1,
+      "description": "MDF 18mm Satın Alma",
+      "category": "Malzeme",
+      "amount": 2250,
+      "date": "2024-01-15",
+      "type": "expense",
+      "supplier": "Ahşap Ticaret",
+      "notes": "50 adet MDF levha"
+    },
+    {
+      "id": 2,
+      "description": "Freze Ucu Satın Alma",
+      "category": "Kesici Takım",
+      "amount": 1200,
+      "date": "2024-01-12",
+      "type": "expense",
+      "supplier": "Takım Ticaret",
+      "notes": "10 adet 6mm karbür uç"
+    },
+    {
+      "id": 3,
+      "description": "Elektrik Faturası",
+      "category": "Elektrik",
+      "amount": 850,
+      "date": "2024-01-10",
+      "type": "expense",
+      "notes": "Ocak ayı elektrik faturası"
+    },
+    {
+      "id": 4,
+      "description": "Ahmet Yılmaz Siparişi",
+      "category": "Gelir",
+      "amount": 2250,
+      "date": "2024-01-15",
+      "type": "income",
+      "notes": "MDF kesim işi"
+    },
+    {
+      "id": 5,
+      "description": "CNC Makine Bakımı",
+      "category": "Bakım",
+      "amount": 450,
+      "date": "2024-01-08",
+      "type": "expense",
+      "supplier": "Teknik Servis",
+      "notes": "Aylık bakım ve kalibrasyon"
+    },
+    {
+      "id": 6,
+      "description": "Mehmet Kaya Siparişi",
+      "category": "Gelir",
+      "amount": 1050,
+      "date": "2024-01-10",
+      "type": "income",
+      "notes": "Sunta kesim işi"
+    }
+  ],
+  "jobs": []
+}

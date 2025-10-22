@@ -1,36 +1,90 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Xpoint Ahşap CNC Yönetim Sistemi
 
-## Getting Started
+Xpoint firması için geliştirilmiş ahşap CNC fason kesim yönetim sistemi.
 
-First, run the development server:
+## Özellikler
 
+- **Müşteri Yönetimi**: Müşteri bilgilerini ekleme, düzenleme ve takip etme
+- **Ürün Yönetimi**: Ahşap malzemeler ve kesici takımların stok takibi
+- **Sipariş Yönetimi**: Sipariş alma, takip etme ve durum güncelleme
+- **Stok Girişi**: Yeni ürün girişi ve maliyet takibi
+- **Maliyet Takibi**: Gelir-gider analizi ve karlılık hesaplama
+
+## Teknolojiler
+
+- **Frontend**: Next.js 14, React, TypeScript
+- **Styling**: Tailwind CSS
+- **Icons**: Lucide React
+- **Deployment**: Vercel
+
+## Kurulum
+
+1. Projeyi klonlayın:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone <repository-url>
+cd xpoint-app
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Bağımlılıkları yükleyin:
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Geliştirme sunucusunu başlatın:
+```bash
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. Tarayıcınızda [http://localhost:3000](http://localhost:3000) adresini açın.
 
-## Learn More
+## Vercel'de Deploy Etme
 
-To learn more about Next.js, take a look at the following resources:
+1. [Vercel](https://vercel.com) hesabınızla giriş yapın
+2. "New Project" butonuna tıklayın
+3. GitHub repository'nizi bağlayın
+4. Vercel otomatik olarak Next.js projesini algılayacak
+5. "Deploy" butonuna tıklayın
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Sayfalar
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Ana Sayfa**: Genel istatistikler ve hızlı erişim
+- **Müşteriler**: Müşteri bilgileri yönetimi
+- **Ürünler**: Stok takibi ve ürün yönetimi
+- **Siparişler**: Sipariş takibi ve durum yönetimi
+- **Stok Girişi**: Yeni ürün girişi ve maliyet takibi
+- **Maliyetler**: Gelir-gider analizi
 
-## Deploy on Vercel
+## Özellikler
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Müşteri Yönetimi
+- Müşteri ekleme/düzenleme/silme
+- İletişim bilgileri takibi
+- Sipariş geçmişi görüntüleme
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Ürün Yönetimi
+- Ürün kategorileri (Ahşap, Kesici Takım, Aksesuar)
+- Stok seviyesi takibi
+- Minimum stok uyarıları
+- Tedarikçi bilgileri
+
+### Sipariş Yönetimi
+- Sipariş durumu takibi (Beklemede, İşlemde, Tamamlandı, Teslim Edildi)
+- Ödeme durumu takibi
+- Teslim tarihi yönetimi
+- Detaylı sipariş bilgileri
+
+### Stok Girişi
+- Yeni ürün girişi
+- Nakliye ücreti takibi
+- Tedarikçi bilgileri
+- Maliyet hesaplama
+
+### Maliyet Takibi
+- Gelir-gider kayıtları
+- Kategori bazında analiz
+- Net kar/zarar hesaplama
+- Detaylı maliyet raporları
+
+## Lisans
+
+Bu proje Xpoint firması için özel olarak geliştirilmiştir.
