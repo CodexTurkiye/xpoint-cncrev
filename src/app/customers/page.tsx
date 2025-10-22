@@ -41,9 +41,14 @@ export default function CustomersPage() {
         });
         if (response.ok) {
           setCustomers(customers.filter(customer => customer.id !== id));
+          alert('Müşteri başarıyla silindi!');
+        } else {
+          const errorData = await response.json();
+          alert(`Hata: ${errorData.error}`);
         }
       } catch (error) {
         console.error('Error deleting customer:', error);
+        alert('Müşteri silinirken bir hata oluştu!');
       }
     }
   };
