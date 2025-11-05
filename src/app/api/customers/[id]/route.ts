@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
-import { readData, writeData, Customer } from '@/lib/data';
+import { getCollection } from '@/lib/mongodb';
+import { Customer } from '@/lib/data';
 
 export async function PUT(
   request: Request,
@@ -9,18 +10,20 @@ export async function PUT(
     const { id: idString } = await params;
     const id = parseInt(idString);
     const updatedCustomer: Omit<Customer, 'id'> = await request.json();
-    const data = readData();
+    const collection = await getCollection('customers');
     
-    const customerIndex = data.customers.findIndex(c => c.id === id);
-    if (customerIndex === -1) {
+    const result = await collection.updateOne(
+      { id },
+      { $set: { ...updatedCustomer } }
+    );
+    
+    if (result.matchedCount === 0) {
       return NextResponse.json({ error: 'Customer not found' }, { status: 404 });
     }
     
-    data.customers[customerIndex] = { id, ...updatedCustomer };
-    writeData(data);
-    
-    return NextResponse.json(data.customers[customerIndex]);
+    return NextResponse.json({ id, ...updatedCustomer });
   } catch (error) {
+    console.error('Error updating customer:', error);
     return NextResponse.json({ error: 'Failed to update customer' }, { status: 500 });
   }
 }
@@ -32,17 +35,17 @@ export async function DELETE(
   try {
     const { id: idString } = await params;
     const id = parseInt(idString);
+    const collection = await getCollection('customers');
     
-    // Vercel'de dosya yazma izni yok, sadece başarı mesajı döndür
-    console.log(`Customer ${id} deletion requested`);
+    const result = await collection.deleteOne({ id });
     
-    return NextResponse.json({ 
-      success: true, 
-      message: 'Müşteri silindi (Production\'da veri kalıcı değil)',
-      warning: 'Vercel\'de dosya yazma izni yok. Veriler kalıcı değil.'
-    });
+    if (result.deletedCount === 0) {
+      return NextResponse.json({ error: 'Customer not found' }, { status: 404 });
+    }
+    
+    return NextResponse.json({ success: true });
   } catch (error) {
-    console.error('Delete error:', error);
+    console.error('Error deleting customer:', error);
     return NextResponse.json({ error: 'Failed to delete customer' }, { status: 500 });
   }
 }

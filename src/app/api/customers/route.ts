@@ -1,11 +1,14 @@
 import { NextResponse } from 'next/server';
-import { readData, writeData, getNextId, Customer } from '@/lib/data';
+import { getCollection } from '@/lib/mongodb';
+import { Customer } from '@/lib/data';
 
 export async function GET() {
   try {
-    const data = readData();
-    return NextResponse.json(data.customers);
+    const collection = await getCollection('customers');
+    const customers = await collection.find({}).toArray();
+    return NextResponse.json(customers);
   } catch (error) {
+    console.error('Error fetching customers:', error);
     return NextResponse.json({ error: 'Failed to fetch customers' }, { status: 500 });
   }
 }
@@ -13,17 +16,17 @@ export async function GET() {
 export async function POST(request: Request) {
   try {
     const newCustomer: Omit<Customer, 'id'> = await request.json();
+    const collection = await getCollection('customers');
     
-    // Vercel'de dosya yazma izni yok, sadece mock data döndür
     const customer: Customer = {
-      id: Date.now(), // Unique ID
+      id: Date.now(),
       ...newCustomer
     };
     
-    console.log('New customer created:', customer);
-    
+    await collection.insertOne(customer);
     return NextResponse.json(customer, { status: 201 });
   } catch (error) {
+    console.error('Error creating customer:', error);
     return NextResponse.json({ error: 'Failed to create customer' }, { status: 500 });
   }
 }
